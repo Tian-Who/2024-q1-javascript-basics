@@ -1,3 +1,5 @@
+//@ts-check
+
 let WOW = 0;
 let gotPast10 = false;
 let gotPast50 = false;
