@@ -1,9 +1,16 @@
 //@ts-check
+/** @type {HTMLElement} */
+//@ts-ignore
+let speak = document.getElementById("speak");
 
 let WOW = 0;
+
 let gotPast10 = false;
+
 let gotPast50 = false;
-console.log("Why are you in here??? WHO ARE YOU!?!??!??!?");
+
+speak.innerText = "Why are you in here??? WHO ARE YOU!?!??!??!?";
+
 function stopTouchingME() {
 	if (WOW == 10) {
 		gotPast10 = true;
@@ -14,11 +21,11 @@ function stopTouchingME() {
 	}
 	WOW++ + 1;
 	if (gotPast10 === false && gotPast50 === false) {
-		console.log("HEY STOP TOUCHING ME!!! >:[");
+		speak.innerText = "HEY STOP TOUCHING ME!!! >:[";
 	} else if (gotPast10 == true) {
-		console.log("YOU BETTER STOP!! >:[ >:[");
+		speak.innerText = "YOU BETTER STOP!! >:[ >:[";
 	} else if (gotPast50 == true) {
-		console.log("STOP OR ELSE >:[ ]>:[ >:[");
+		speak.innerText = "STOP OR ELSE >:[ >:[ >:[";
 	}
 
 	console.log(WOW);
