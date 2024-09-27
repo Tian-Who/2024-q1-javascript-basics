@@ -1,14 +1,30 @@
 //@ts-check
 /** @type {HTMLElement} */
 //@ts-ignore
+
 let speak = document.getElementById("speak");
+
+speak.innerText = "Why are you in here??? WHO ARE YOU!?!??!??!?";
 
 let WOW = 0;
 
-let gotPast10 = false;
-
 let gotPast50 = false;
 
+function gotPastCounter() {
+	WOW++ + 1;
+	if (WOW == 50) {
+		gotPast50 = true;
+	}
+
+	console.log(WOW);
+	if (gotPast50 === true && gotBox === true) {
+		console.log("gotBox");
+	} else if (gotPast50 === true) {
+		speak.innerText = "fine";
+	} else {
+		PlayMessage();
+	}
+}
 let messages = [
 	0,
 
@@ -16,11 +32,10 @@ let messages = [
 
 	2,
 ];
-speak.innerText = "Why are you in here??? WHO ARE YOU!?!??!??!?";
 
-function stopTouchingME() {
+function PlayMessage() {
 	let randomMessage = Math.floor(Math.random() * messages.length);
-	randomMessage;
+
 	if (randomMessage === 0) {
 		speak.innerText = "HEY STOP TOUCHING ME!!! >:[";
 	} else if (randomMessage === 1) {
@@ -28,21 +43,24 @@ function stopTouchingME() {
 	} else if (randomMessage === 2) {
 		speak.innerText = "STOP OR ELSE >:[ >:[ >:[";
 	}
-	// if (WOW == 10) {
-	// 	gotPast10 = true;
-	// } else if (WOW == 50) {
-	// 	(gotPast10 = false), (gotPast50 = true);
-	// } else if (WOW == 100) {
-	// 	(WOW = 0), (gotPast10 = false), (gotPast10 = false);
-	// }
-	// WOW++ + 1;
-	// if (gotPast10 === false && gotPast50 === false) {
-	// 	speak.innerText = "HEY STOP TOUCHING ME!!! >:[";
-	// } else if (gotPast10 == true) {
-	// 	speak.innerText = "YOU BETTER STOP!! >:[ >:[";
-	// } else if (gotPast50 == true) {
-	// 	speak.innerText = "STOP OR ELSE >:[ >:[ >:[";
-	console.log(randomMessage);
+	gotPastCounter;
+
+	// console.log(randomMessage);
 }
 
-addEventListener("click", stopTouchingME);
+addEventListener("click", gotPastCounter);
+//@ts-check
+/** @type {HTMLElement} */
+//@ts-ignore
+let box = document.getElementById("box");
+
+let gotBox = false;
+
+box.innerText = "[_]";
+
+function grabBox() {
+	box.innerText = "";
+	gotBox = true;
+}
+
+addEventListener("click", grabBox);
